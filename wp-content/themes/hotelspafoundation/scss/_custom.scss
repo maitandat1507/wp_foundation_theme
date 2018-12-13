@@ -1,6 +1,9 @@
 .is-reveal-open .off-canvas-wrapper {
 	overflow-x:visible;
 }
+.mejs-controls {
+	display: none!important;
+}
 h2 {
 	color:$primary-color;
 	font-size: rem-calc(42);
@@ -26,6 +29,7 @@ div.off-canvas {
 		top:0;
 		left:0;
 		width:100%;
+		z-index: 2;
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#29669e+0,2a3b5a+100&0.7+0,0.7+100 */
 		background: -moz-linear-gradient(top,  rgba(41,102,158,0.7) 0%, rgba(42,59,90,0.7) 100%); /* FF3.6-15 */
 		background: -webkit-linear-gradient(top,  rgba(41,102,158,0.7) 0%,rgba(42,59,90,0.7) 100%); /* Chrome10-25,Safari5.1-6 */

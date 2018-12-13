@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Foundation for Sites</title>
+    <title><?php echo get_bloginfo('name'); ?></title>
     <?php wp_head(); ?>
     <!-- <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/foundation-icons.css"> -->
@@ -49,7 +49,7 @@
 
         <div class="headliner">
           <div class="column row">
-            <h1 class="text-center">Passion for Excellence</h1>
+            <h1 class="text-center"><?php echo get_bloginfo('description') ?></h1>
           </div>
         </div> <!--.headliner-->
 
@@ -67,51 +67,37 @@
     </section>
 
      <section class="content rooms row">
+        <?php $args = array(
+          'post_type' => 'page',
+          'post_parent' => 16,
+          'orderby' => 'title',
+          'order' => 'ASC',
+          'posts_per_page' => 3
+        );
+
+        $rooms = new WP_Query($args);
+        while ($rooms->have_posts()) : $rooms->the_post();
+
+        ?>
         <div class="medium-4 columns">
-           <a href="room-01.html">
+           <a href="<?php the_permalink(); ?>">
                 <div class="room-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rooms/room-01.jpg">
+                  <?php the_post_thumbnail(); ?>
                     <div class="room-title">
-                        <h3>Room 01</h3>
+                        <h3><?php the_title(); ?></h3>
                     </div>
                 </div> <!--.room-image-->
                 <div class="room-content">
-                  <p>Phasellus cursus, est vitae auctor faucibus, metus lacus rhoncus metus, sed commodo ante mi id dui. Suspendisse.</p>
+                  <?php the_content(); ?>
                 </div> <!--.room-content-->
             </a>
           </div> <!--.medium-4-->
 
-          <div class="medium-4 columns">
-            <a href="room-02.html">
-              <div class="room-image">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rooms/room-02.jpg">
-                  <div class="room-title">
-                      <h3>Room 02</h3>
-                  </div>
-              </div> <!--.room-image-->
-              <div class="room-content">
-                <p>Phasellus cursus, est vitae auctor faucibus, metus lacus rhoncus metus, sed commodo ante mi id dui. Suspendisse.</p>
-              </div>
-            </a>
-          </div> <!--.medium-4-->
-
-          <div class="medium-4 columns">
-            <a href="room-03.html">
-                <div class="room-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rooms/room-03.jpg">
-                    <div class="room-title">
-                        <h3>Room 03</h3>
-                    </div>
-                </div> <!--.room-image-->
-                <div class="room-content">
-                  <p>Phasellus cursus, est vitae auctor faucibus, metus lacus rhoncus metus, sed commodo ante mi id dui. Suspendisse.</p>
-                </div>
-            </a>
-          </div> <!--.medium-4-->
+        <?php endwhile; wp_reset_postdata(); ?>
     </section>
 
     <div class="row columns">
-        <a href="rooms.html" class="button float-right">View All</a>
+        <a href="<?php echo get_permalink(16); ?>" class="button float-right">View All</a>
     </div>
 
     <!-- Separator image -->

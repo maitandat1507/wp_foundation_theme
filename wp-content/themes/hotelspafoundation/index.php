@@ -56,7 +56,7 @@
         <div class="header-content">
             <div class="row">
               <div class="small-8 medium-4 columns">
-                 <img src="assets/images/logo.svg">
+                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg">
               </div>
 
               <div class="small-4 medium-4 columns">
@@ -70,7 +70,7 @@
         <div class="medium-4 columns">
            <a href="room-01.html">
                 <div class="room-image">
-                    <img src="assets/images/rooms/room-01.jpg">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rooms/room-01.jpg">
                     <div class="room-title">
                         <h3>Room 01</h3>
                     </div>
@@ -84,7 +84,7 @@
           <div class="medium-4 columns">
             <a href="room-02.html">
               <div class="room-image">
-                  <img src="assets/images/rooms/room-02.jpg">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rooms/room-02.jpg">
                   <div class="room-title">
                       <h3>Room 02</h3>
                   </div>
@@ -98,7 +98,7 @@
           <div class="medium-4 columns">
             <a href="room-03.html">
                 <div class="room-image">
-                    <img src="assets/images/rooms/room-03.jpg">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rooms/room-03.jpg">
                     <div class="room-title">
                         <h3>Room 03</h3>
                     </div>
@@ -146,32 +146,32 @@
                   <div class="row small-up-3 medium-up-3 large-up-3">
                       <div class="column">
                           <a data-open="galleryModal">
-                            <img class="thumbnail" src="assets/images/gallery/thumbnail/image01.jpg">
+                            <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image01.jpg">
                           </a>
                       </div>
                       <div class="column">
                            <a data-open="galleryModal">
-                                 <img class="thumbnail" src="assets/images/gallery/thumbnail/image02.jpg">
+                                 <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image02.jpg">
                              </a>
                       </div>
                       <div class="column">
                           <a data-open="galleryModal">
-                               <img class="thumbnail" src="assets/images/gallery/thumbnail/image03.jpg">
+                               <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image03.jpg">
                            </a>
                       </div>
                       <div class="column">
                           <a data-open="galleryModal">
-                             <img class="thumbnail" src="assets/images/gallery/thumbnail/image04.jpg">
+                             <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image04.jpg">
                           </a>
                       </div>
                       <div class="column">
                          <a data-open="galleryModal">
-                            <img class="thumbnail" src="assets/images/gallery/thumbnail/image05.jpg">
+                            <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image05.jpg">
                           </a>
                       </div>
                       <div class="column">
                         <a data-open="galleryModal">
-                            <img class="thumbnail" src="assets/images/gallery/thumbnail/image06.jpg">
+                            <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image06.jpg">
                         </a>
                       </div>
                   </div>

@@ -42,9 +42,9 @@
     <section class="promo-video">
         <div id="overlay" ></div>
         <video id="video" autoplay loop>
-            <source src="assets/videos/videobg.mp4" type="video/mp4">
-            <source src="assets/videos/videobg.webm" type="video/webm">
-            <source src="assets/videos/videobg.ogv" type="video/ogv">
+            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/videobg.mp4" type="video/mp4">
+            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/videobg.webm" type="video/webm">
+            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/videobg.ogv" type="video/ogv">
         </video>
 
         <div class="headliner">

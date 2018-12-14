@@ -88,7 +88,7 @@
                     </div>
                 </div> <!--.room-image-->
                 <div class="room-content">
-                  <?php the_content(); ?>
+                  <?php the_field('short_description'); ?>
                 </div> <!--.room-content-->
             </a>
           </div> <!--.medium-4-->
@@ -101,7 +101,9 @@
     </div>
 
     <!-- Separator image -->
-    <div class="separator-image pool-image"></div>
+    <?php while(have_posts()): the_post(); ?>
+    <div class="separator-image pool-image" style="background-image: url(<?php the_field('separator_1') ?>)"></div>
+    <?php endwhile ?>
 
     <!-- About Us Gallery  -->
     <section class="about-us-gallery ">
@@ -111,7 +113,13 @@
         <div class="content-about-us">
             <div class="row">
                 <div class="medium-6 columns">
-                  <h2>About Us</h2>
+                  <?php $about = new WP_Query('pagename=about-us');
+                    while ($about->have_posts()): $about->the_post();
+                   ?>
+                  <h2><?php the_title(); ?></h2>
+
+                  <?php endwhile; wp_reset_postdata(); ?>
+
                   <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent a tortor vulputate tellus lacinia sagittis. Donec varius quam magna, ut tristique ipsum gravida non.</p>
 
                   <p>Donec blandit scelerisque nisl, in fermentum leo volutpat et. Ut metus lorem, tempus nec dictum vitae, suscipit et libero.ed accumsan, eros ut mattis sodales, dolor quam ornare dui, et malesuada mi purus nec est. Vestibulum semper turpis leo. Etiam mauris leo, vulputate a euismod ut, tincidunt ac nisi. Mauris nec convallis diam, vel varius augue. Cras faucibus mauris in nibh convallis aliquet.</p>
@@ -128,38 +136,40 @@
 
 
                 <div id="gallery" class="medium-6 columns bluebg">
-                  <h2 class="white">Gallery</h2>
+                  <?php $gallery = new WP_Query('pagename=gallery');
+                    while($gallery->have_posts()) : $gallery->the_post();
+                  ?>
+                  <h2 class="white"><?php the_title(); ?></h2>
+
+                  <?php $images = get_post_gallery(get_the_ID(), false); ?>
                   <div class="row small-up-3 medium-up-3 large-up-3">
-                      <div class="column">
-                          <a data-open="galleryModal">
-                            <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image01.jpg">
-                          </a>
-                      </div>
-                      <div class="column">
-                           <a data-open="galleryModal">
-                                 <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image02.jpg">
-                             </a>
-                      </div>
-                      <div class="column">
-                          <a data-open="galleryModal">
-                               <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image03.jpg">
-                           </a>
-                      </div>
-                      <div class="column">
-                          <a data-open="galleryModal">
-                             <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image04.jpg">
-                          </a>
-                      </div>
-                      <div class="column">
-                         <a data-open="galleryModal">
-                            <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image05.jpg">
-                          </a>
-                      </div>
-                      <div class="column">
-                        <a data-open="galleryModal">
-                            <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/thumbnail/image06.jpg">
-                        </a>
-                      </div>
+                    <?php $ids = $images['ids'];
+                        $ids = explode(',', $ids);
+                        $i = 0;
+
+                        foreach ($ids as $image_id):
+                          $gallery_image = wp_get_attachment_image_src($image_id, 'thumbnail'); ?>
+
+                          <div class="column">
+                              <a data-open="galleryModal<?php echo $i; ?>">
+                                <img class="thumbnail" src="<?php echo $gallery_image[0]; ?>">
+                              </a>
+                          </div>
+
+                          <!-- MODALS -->
+                          <div class="reveal" id="galleryModal<?php echo $i; ?>" data-close-on-click="true" data-reveal>
+                            <img src="<?php echo $gallery_image[0]; ?>" id="imageContainer">
+                            <button class="close-button" data-close aria-label="Close reveal" type="button">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <!-- ./MODALS -->
+
+                        <?php $i++; endforeach ?>
+
+                      <?php
+                        endwhile; wp_reset_postdata();
+                      ?>
                   </div>
                 </div>
             </div>
@@ -167,7 +177,9 @@
     </section>
 
     <!-- Separator image -->
-    <div class="separator-image bar-image"></div>
+    <?php while(have_posts()): the_post(); ?>
+    <div class="separator-image bar-image" style="background-image: url(<?php the_field('separator_2') ?>)"></div>
+    <?php endwhile ?>
 
 
     <!-- Booking section -->

@@ -3,8 +3,7 @@ function getHeight() {
 	$('#overlay').css({'height':height+'px'})
 }
 
-
-$(function() {
+(function($) {
 	window.setTimeout('getHeight()',100);
 
 	$('#gallery a').on('click',function() {
@@ -25,10 +24,10 @@ $(function() {
 				console.log(result);
 			}, 'json' );
 		});
-});
+})(jQuery);
 
-$(window).resize(function() {
+jQuery(window).resize(function() {
 	getHeight();
 });
 
-$(document).foundation();
+jQuery(document).foundation();

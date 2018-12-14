@@ -158,6 +158,7 @@
 
                           <!-- MODALS -->
                           <div class="reveal" id="galleryModal<?php echo $i; ?>" data-close-on-click="true" data-reveal>
+                            <?php $gallery_image = wp_get_attachment_image_src($image_id, 'full'); ?>
                             <img src="<?php echo $gallery_image[0]; ?>" id="imageContainer">
                             <button class="close-button" data-close aria-label="Close reveal" type="button">
                               <span aria-hidden="true">&times;</span>

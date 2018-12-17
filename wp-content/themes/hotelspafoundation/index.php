@@ -196,53 +196,7 @@
     <div class="reveal" id="modalBook" data-reveal data-animation-in="scale-in-up" data-animation-out="scale-out-down">
         <h2 class="text-center">Booking Form</h2>
 
-        <form data-abide novalidate >
-
-          <div class="alert callout" style="display:none;" data-abide-error>
-              <p><i class="fi-alert"></i> There´re some problems in your form!  </p>
-          </div>
-
-            <div class="row columns">
-                <label>Name:
-                    <input type="text" placeholder="Your Name" required>
-                    <span class="form-error">
-                        <i class="fi-alert"></i> The name field is mandatory!!
-                    </span>
-                </label>
-            </div>
-            <div class="row columns">
-                <label>Email:
-                    <input type="text" placeholder="Your Email" required pattern="email">
-                    <span class="form-error">
-                        <i class="fi-alert"></i> The email field is mandatory!!
-                    </span>
-                </label>
-            </div>
-            <div class="row columns">
-                <label>Phone Number:
-                    <input type="text" placeholder="Your Phone Number" required pattern="number">
-                    <span class="form-error">
-                        <i class="fi-alert"></i> The phone field is mandatory!!
-                    </span>
-                </label>
-            </div>
-            <div class="row columns">
-                <label>Message:
-                    <textarea placeholder="Your Message"></textarea>
-                </label>
-            </div>
-            <div class="row columns">
-                <input type="submit" class="button" value="Submit">
-
-                <button class="button success" type="reset" value="Reset">Reset</button>
-            </div>
-
-            <button class="close-button" data-close aria-label="Close reveal" type="button">
-                  <span aria-hidden="true">&times;</span>
-            </button>
-
-        </form>
-
+        <?php echo do_shortcode('[ninja_form id=1]'); ?>
     </div>
 
 
